@@ -35,14 +35,14 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
 // config những API ko cần xác thực
-                .antMatchers("/auth/login").permitAll()
+                .antMatchers("/auth/login","/user/create").permitAll()
 
 //// Config những API phải có Authority là Admin thì mới được truy cập
                 .antMatchers(HttpMethod.GET, "/user").hasAuthority("Admin")
                 .antMatchers(HttpMethod.DELETE, "/user/delete/{userId}").hasAuthority("Admin")
 
 // Config những API phải có Authority là ADMIN hoặc User thì mới được truy cập
-                .antMatchers("/user/create","/user/update/{userId}").hasAnyAuthority("Admin", "User")
+                .antMatchers("/user/update/{userId}","/user/{userId}").hasAnyAuthority("Admin", "User")
                 .anyRequest().authenticated()// Những đường dẫn còn lại cần được xác thực
                 .and().httpBasic()// Kích hoạt cấu hình http basic trong Spring Security
 

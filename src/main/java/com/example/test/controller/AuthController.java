@@ -5,8 +5,6 @@ import com.example.test.entity.Account;
 import com.example.test.repository.AccountRepository;
 import com.example.test.request.LoginReq;
 import com.example.test.utils.JWTTokenUtils;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;

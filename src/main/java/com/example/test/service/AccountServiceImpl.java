@@ -33,6 +33,15 @@ public class AccountServiceImpl implements AccountService {
     }
 
     @Override
+    public Account findById(long userId) {
+        Optional<Account> optional = accountRepository.findById(userId);
+        if (optional.isPresent()){
+            return optional.get();
+        }
+        return null;
+    }
+
+    @Override
     public Account create(AccountCreateDto dto) {
         Account account = new Account();
         BeanUtils.copyProperties(dto, account);

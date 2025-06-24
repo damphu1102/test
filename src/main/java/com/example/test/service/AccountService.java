@@ -10,6 +10,8 @@ import java.util.List;
 public interface AccountService extends UserDetailsService {
     List<Account> getAllUser();
 
+    Account findById(long userId);
+
     Account create (AccountCreateDto dto);
 
     Account update (AccountUpdateDto dto);

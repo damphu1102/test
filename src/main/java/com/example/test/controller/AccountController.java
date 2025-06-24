@@ -5,7 +5,6 @@ import com.example.test.dto.AccountUpdateDto;
 import com.example.test.entity.Account;
 import com.example.test.service.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
@@ -25,6 +24,12 @@ public class AccountController {
         return accountService.getAllUser();
     }
 
+    @PreAuthorize("hasAuthority('Admin') or hasAuthority('User')" )
+    @GetMapping("/{userId}")
+        public Account findById (@PathVariable long userId){
+        return accountService.findById(userId);
+    }
+
     @PreAuthorize("hasAuthority('Admin')")
     @DeleteMapping("/delete/{userId}")
     public String delete (@PathVariable long userId){
@@ -32,7 +37,6 @@ public class AccountController {
         return "Xóa thành công";
     }
 
-    @PreAuthorize("hasAuthority('Admin') or hasAuthority('User')" )
     @PostMapping ("/create")
     public Account create(@RequestBody AccountCreateDto dto){
         return accountService.create(dto);
