@@ -2,15 +2,16 @@ package com.example.test.entity;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.security.core.GrantedAuthority;
 
 import javax.persistence.*;
-import java.time.LocalDate;
+import java.util.List;
 
 @Getter
 @Setter
 @Entity
 @Table (name = "USER")
-public class User {
+public class Account {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column (name = "USER_ID")
@@ -23,16 +24,13 @@ public class User {
     private String fullName;
 
     @Column(name = "EMAIL", length = 255, nullable = false, unique = true)
-    private String emailAccount;
+    private String email;
 
     @Column(name = "PASSWORD", length = 255, nullable = false)
-    private String passWord;
+    private String password;
 
     @Column(name = "PHONE", length = 10, nullable = false)
-    private String phoneNumber;
-
-    @Column(name = "DATE_BIRD")
-    private LocalDate    dateBird;
+    private String phone;
 
     @Column(name = "ROLE", nullable = false)
     @Enumerated(EnumType.STRING)
@@ -41,4 +39,5 @@ public class User {
     @Column(name = "STATUS", nullable = false)
     @Enumerated(EnumType.STRING)
     private Status status;
+
 }
