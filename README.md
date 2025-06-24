@@ -1,5 +1,4 @@
 🧰 Công nghệ sử dụng
-
 * Ngôn ngữ: Java 11
 * Framework: Spring Boot 2.7.15
 * Build Tool: Gradle
@@ -9,7 +8,6 @@
 * Thư viện hỗ trợ: Lombok, JWT
 
 ✨ Các tính năng chính
-
 * Quản lý thông tin người dùng:** Lưu trữ các thông tin cơ bản như `name`, `username`, `password`, `email`, `phone`, `role`, và `status`.
 * Soft Delete: Người dùng không bị xóa vĩnh viễn khỏi cơ sở dữ liệu.
   Thay vào đó, họ được đánh dấu là `Inactive` bằng cách cập nhật trường `status` trong entity `User`.
@@ -18,31 +16,6 @@
 * Authorization (Phân quyền): Các API được bảo vệ yêu cầu một JWT hợp lệ để truy cập. Có thể mở rộng để phân quyền theo vai trò (roles) cụ thể.
 * RESTful APIs: Cung cấp các endpoint rõ ràng, tuân thủ nguyên tắc REST cho các thao tác CRUD.
 * Mã hóa mật khẩu: Sử dụng BCryptPasswordEncoder để mã hóa mật khẩu người dùng, tăng cường bảo mật.
-
-📁 Cấu trúc thư mục dự án
-Dự án được tổ chức theo cấu trúc sau:
-src/
-├── main/
-│   ├── java/
-│   │   └── com/
-│   │       └── example/
-│   │           └── test/
-│   │               ├── config/        # Cấu hình ứng dụng (Security, JWT, CORS)
-│   │               ├── controller/    # Các REST API Endpoints
-│   │               ├── dto/           # Data Transfer Objects (Dùng cho input/output của API)
-│   │               ├── entity/        # Các JPA Entities ánh xạ tới bảng trong DB (User, Status)
-│   │               ├── repository/    # Spring Data JPA Repositories để tương tác với DB
-│   │               ├── request/       # DTOs cho các yêu cầu API (LoginRequest, RegisterRequest)
-│   │               ├── service/       # Logic nghiệp vụ (Interfaces và Implementations)
-│   │               ├── utils/         # Các lớp tiện ích chung (ví dụ: liên quan đến JWT)
-│   │               └── TestApplication.java # Lớp khởi chạy ứng dụng Spring Boot
-│   └── resources/
-│       └── application.properties     # Cấu hình ứng dụng và cơ sở dữ liệu
-└── test/
-└── java/
-└── com/
-└── example/
-└── test/              # Các bài kiểm thử đơn vị và tích hợp
 
 🚀 Cài đặt môi trường
 Trước khi chạy ứng dụng, bạn cần cài đặt các công cụ sau trên hệ thống của mình:
